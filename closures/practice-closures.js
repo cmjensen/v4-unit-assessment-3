@@ -8,12 +8,20 @@
     myFunc should return getSecretString
   */
   
-  //CODE HERE
+ const myFunc = () => {
+   const myStr = `super secret string`
+   function getSecretString() {
+     return myStr
+   }
+   getSecretString()
+ }
+
+
 
   
   //Now create a variable called secretString. Its value should be the invocation of myFunc.
 
-  //CODE HERE
+  const secretString = myFunc()
   
   
   ////////////PROBLEM 2////////////
@@ -28,27 +36,36 @@
     The lightSwitch function should return flipTheSwitch.
   */
   
-  //CODE HERE
+  const lightSwitch = () => {
+    let isTheLightOn = false
+    function flipTheSwitch() {
+      if(isTheLightOn = true) {
+        return `The light is on`
+      } else return `The light is off`
+    }
+    flipTheSwitch()
+  }
 
   
   //Create a variable called kitchenSwitch whose value is the invocation of lightSwitch.
   
-  //CODE HERE
+  const kitchenSwitch = lightSwitch()
 
   
   //Invoke kitchenSwitch.
 
-  //CODE HERE
+  kitchenSwitch()
   
   
   //Create a variable called bathroomSwitch whose value is the invocation of lightSwitch. 
 
-  //CODE HERE
+  const bathroomSwitch = lightSwitch()
   
   
   //Invoke bathroomSwitch twice.
   
-  //CODE HERE
+  bathroomSwitch()
+  bathroomSwitch()
 
   
   
