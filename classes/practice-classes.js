@@ -103,11 +103,11 @@ class Player extends Character {
   }
 
   defend(amount) {
-    this.healthLevel = healthLevel - amount
-    if(healthLevel > 0) {
+    this.healthLevel -= amount
+    if(this.healthLevel > 0) {
       return {
         attackStrength: amount,
-        remainingHealth: healthLevel,
+        remainingHealth: this.healthLevel,
         message: `${this.name} is still in the fight!`
       }
     } else return `${this.name} has been defeated!`
@@ -122,8 +122,8 @@ class Player extends Character {
     and he's a firebender type with a 100 healthLevel and 0 attackLevel.
 */
 
-const aang = new Character('Aang', 'airbender', 100, 100)
-const ozai = new Character('Ozai', 'firebender', 100, 0)
+const aang = new Player('Aang', 'airbender', 100, 100)
+const ozai = new Player('Ozai', 'firebender', 100, 0)
 /*
     Let's see how a fight between these two would go. 
     Create a variable called 'battle' whose value is Ozai's 
@@ -150,18 +150,17 @@ const battle = ozai.defend(aang.attackLevel)
 */
 
 class Hero extends Player {
-  constructor(name, type, healthLevel, attackLevel) {
+  constructor(name, type, healthLevel, attackLevel, superPowers = []) {
     super(name, type, healthLevel, attackLevel)
-    this.superPowers = []
+    this.superPowers = superPowers
   }
 
   addSuperPower(power) {
-    this.superPowers.push(power)
+    this.superPowers = [...this.superPowers, power]
   }
 
   useSuperPower(index) {
-    power = this.superPowers[index]
-    return `${this.name} used ${power}!`
+    return `${this.name} used ${this.superPowers[index]}!`
   }
 }
 
@@ -175,5 +174,7 @@ class Hero extends Player {
 */
 
 const fireSpitter = new Hero('Fire Spitter', 'dragon', 5000, 5000)
-fireSpitter.addSuperPower('spitting fire', 'turning invisible', 'super speed')
+fireSpitter.addSuperPower('spitting fire')
+fireSpitter.addSuperPower('turning invisible')
+fireSpitter.addSuperPower('super speed')
 fireSpitterAttack = fireSpitter.useSuperPower(0)
