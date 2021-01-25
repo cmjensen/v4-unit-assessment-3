@@ -8,13 +8,13 @@ const Shelf = (props) => {
     })
     
     return (
-        <div>
-            <h2>Your Shelf</h2>
+        <div class='shelf'>
+            <h2 class='your-shelf'>Your Shelf</h2>
             <button
                 onClick={() => props.clearShelf()}>
-            Clear Shelf
+            clear shelf
             </button>
-            <h2>{mappedTitles}</h2>
+            <h2 class='shelf-books'>{mappedTitles}</h2>
         </div>
     )
 }

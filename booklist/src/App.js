@@ -54,12 +54,13 @@ class App extends Component {
       <SearchBar 
         filterBooks={this.filterBooks}
         reset={this.reset}/>
-      <BookList 
-        books={this.state.books}
-        addToShelf={this.addToShelf}/>
       <Shelf 
         shelf={this.state.shelf}
         clearShelf={this.clearShelf}/>
+      <BookList 
+        books={this.state.books}
+        addToShelf={this.addToShelf}/>
+      
     </div>
     );
   }
